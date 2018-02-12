@@ -1,11 +1,11 @@
-﻿
-class Cell {
+﻿class Cell {
     private _cellRow: number;
     private _cellColumn: number;
     private _displayNumber: number;
     private _shape: string;
     public isTaken: boolean;
     public isValidNumber: boolean;
+    private _messageToPlayer: string;
     public get cellRow(): number {
         return this._cellRow
     }
@@ -27,6 +27,16 @@ class Cell {
         if (displayNumber >= 1 && displayNumber <= 9)
             this._displayNumber = displayNumber;
     }
+    public get messageToPlayer(): string {
+        return this._messageToPlayer;
+    }
+    public set messageToPlayer(message: string) {
+        if (message == "You should only enter numbers\n"
+            || message == "You should only enter round numbers between 1 and 9\n"
+            || message == "")
+            this._messageToPlayer = message;
+
+    }
     public static displayWinner(shape: string): string {
         if (shape == "X")
             return "You Win";
@@ -40,13 +50,23 @@ class Cell {
             this._shape = shape;
     }
     public constructor(position: number) {
-        this.isValidNumber = this.checkValidNumber(position);
+        if (isNaN(position)) {
+            this.messageToPlayer = "You should only enter numbers\n";
+            this.isValidNumber = false;
+        }
+        else if (position < 1 || position > 9 || Math.round(position) != position) {
+            this.messageToPlayer = "You should only enter round numbers between 1 and 9\n";
+            this.isValidNumber = false;
+        }
+        else {
+            this.messageToPlayer = "";
+            this.isValidNumber = true;
+        }
         if (this.isValidNumber) {
             this.setPosition(position);
             this.displayNumber = position;
             this.shape = "Empty";
             this.isTaken = false;
-
         }
     }
     private setPosition(position: number): void {
@@ -85,12 +105,5 @@ class Cell {
                 break;
         }
     }
-    private checkValidNumber(position: number): boolean {
-        if (position < 1 || position > 9 || isNaN(position)) {
-            return false;
-        }
-        return true;
-    }
+
 }
-
-

@@ -31,9 +31,12 @@ function nextTurn() {
     var tempStr = "<br/>";
     var positionnumber = Number(prompt("Enter your move:"));
     var currentCell = new Cell(positionnumber);
+    var matCell = currentCell;
+    if (currentCell.isValidNumber == true)
+        matCell = mat[currentCell.cellRow][currentCell.cellColumn];
     //Check for valid number and open position
-    while (currentCell.isValidNumber == false || mat[currentCell.cellRow][currentCell.cellColumn].isTaken == true) {
-        var messagePartOne = currentCell.isValidNumber == false ? "The number should be between 1 and 9\n" : "Position " + positionnumber + " is already taken\n";
+    while (currentCell.messageToPlayer != "" || matCell.isTaken == true) {
+        var messagePartOne = currentCell.messageToPlayer != "" ? currentCell.messageToPlayer : "Position " + positionnumber + " is already taken\n";
         positionnumber = Number(prompt(messagePartOne + "Enter your move:"));
         currentCell = new Cell(positionnumber);
     }

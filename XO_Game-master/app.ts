@@ -30,9 +30,12 @@ function nextTurn(): void {
     let tempStr: string = "<br/>";
     let positionnumber = Number(prompt("Enter your move:"));
     let currentCell: Cell = new Cell(positionnumber);
+    let matCell: Cell = currentCell;
+    if (currentCell.isValidNumber == true)
+        matCell = mat[currentCell.cellRow][currentCell.cellColumn];
     //Check for valid number and open position
-    while (currentCell.isValidNumber == false || mat[currentCell.cellRow][currentCell.cellColumn].isTaken == true) {
-        let messagePartOne: string = currentCell.isValidNumber == false ? `The number should be between 1 and 9\n` : `Position ${positionnumber} is already taken\n`;
+    while (currentCell.messageToPlayer != "" || matCell.isTaken == true) {
+        let messagePartOne: string = currentCell.messageToPlayer != "" ? currentCell.messageToPlayer : `Position ${positionnumber} is already taken\n`;
         positionnumber = Number(prompt(`${messagePartOne}Enter your move:`));
         currentCell = new Cell(positionnumber);
     }
@@ -210,3 +213,4 @@ function checkForTieGameFn(): boolean {
     }
     return isTie
 }
+

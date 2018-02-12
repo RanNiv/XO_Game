@@ -1,6 +1,17 @@
 var Cell = /** @class */ (function () {
     function Cell(position) {
-        this.isValidNumber = this.checkValidNumber(position);
+        if (isNaN(position)) {
+            this.messageToPlayer = "You should only enter numbers\n";
+            this.isValidNumber = false;
+        }
+        else if (position < 1 || position > 9 || Math.round(position) != position) {
+            this.messageToPlayer = "You should only enter round numbers between 1 and 9\n";
+            this.isValidNumber = false;
+        }
+        else {
+            this.messageToPlayer = "";
+            this.isValidNumber = true;
+        }
         if (this.isValidNumber) {
             this.setPosition(position);
             this.displayNumber = position;
@@ -37,6 +48,19 @@ var Cell = /** @class */ (function () {
         set: function (displayNumber) {
             if (displayNumber >= 1 && displayNumber <= 9)
                 this._displayNumber = displayNumber;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Cell.prototype, "messageToPlayer", {
+        get: function () {
+            return this._messageToPlayer;
+        },
+        set: function (message) {
+            if (message == "You should only enter numbers\n"
+                || message == "You should only enter round numbers between 1 and 9\n"
+                || message == "")
+                this._messageToPlayer = message;
         },
         enumerable: true,
         configurable: true
@@ -93,12 +117,6 @@ var Cell = /** @class */ (function () {
                 this.cellColumn = 2;
                 break;
         }
-    };
-    Cell.prototype.checkValidNumber = function (position) {
-        if (position < 1 || position > 9 || isNaN(position)) {
-            return false;
-        }
-        return true;
     };
     return Cell;
 }());
