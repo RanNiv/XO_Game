@@ -1,0 +1,14 @@
+C:\Users\Owner\source\repos\XO_Game\XO_Game\bin\TypeScriptHTMLApp1.dll.config
+C:\Users\Owner\source\repos\XO_Game\XO_Game\bin\TypeScriptHTMLApp1.dll
+C:\Users\Owner\source\repos\XO_Game\XO_Game\bin\TypeScriptHTMLApp1.pdb
+C:\Users\Owner\source\repos\XO_Game\XO_Game\obj\Debug\XO_Game.csproj.CoreCompileInputs.cache
+C:\Users\Owner\source\repos\XO_Game\XO_Game\obj\Debug\TypeScriptHTMLApp1.dll
+C:\Users\Owner\source\repos\XO_Game\XO_Game\obj\Debug\TypeScriptHTMLApp1.pdb
+C:\Users\Owner\source\repos\XO_Game\XO_Game\obj\Debug\XO_Game.csprojResolveAssemblyReference.cache
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\bin\TypeScriptHTMLApp1.dll.config
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\bin\TypeScriptHTMLApp1.dll
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\bin\TypeScriptHTMLApp1.pdb
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\obj\Debug\XO_Game.csprojResolveAssemblyReference.cache
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\obj\Debug\XO_Game.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\obj\Debug\TypeScriptHTMLApp1.dll
+C:\Users\Owner\Documents\GitHub\XO_Game\XO_Game-master\obj\Debug\TypeScriptHTMLApp1.pdb
